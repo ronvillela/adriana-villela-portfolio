@@ -1,0 +1,374 @@
+/* Typography & base */
+:root {
+    --bg: #000;
+    --fg: #fff;
+    --muted: #9ca3af; /* subtle gray */
+    --line: rgba(255,255,255,.08);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+
+body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto;
+}
+
+h1, h2, h3, .brand {
+    font-family: Roboto, "Italiana", serif;
+    letter-spacing: 0.02em;
+}
+
+a { color: var(--fg); text-decoration: none; }
+a:hover { opacity: .85; }
+
+/* ------------------------------------
+   Cover Section (Header + Hero)
+------------------------------------ */
+.cover-section {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* full viewport height option: 100vh */
+    color: var(--fg);
+    overflow: hidden;
+
+}
+
+/* Background image as <img> */
+.cover-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* Dark overlay */
+.cover-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+/* Keep all content above overlay */
+.cover-section > *:not(.cover-bg) {
+    position: relative;
+    z-index: 2;
+}
+
+/* Header */
+.site-header {
+    /*border-bottom: 1px solid var(--line);*/
+}
+.brand {
+    font-size: 2rem; /* bigger name */
+    font-weight: 300 !important; /* ensure no bold */
+}
+.nav-link {
+    color: var(--fg);
+    opacity: .8;
+}
+.nav-link:hover { opacity: 1; }
+.site-header nav {
+    gap: 2.25rem !important; /* increase space between Works and Contact */
+}
+
+/* Hero */
+.hero.container-xxl {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto; /* center container-xxl so its own padding sets the left edge */
+    /* removed: padding and max-width to let .container-xxl control width and gutters */
+}
+.hero-text h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+/* match heading weight to brand (no bold) */
+.display-3 {
+    font-weight: 300 !important;
+}
+.hero-text p {
+    color: var(--muted);
+    font-size: 1.25rem;
+}
+
+/* ------------------------------------
+   Section Titles
+------------------------------------ */
+.section-title {
+    font-size: clamp(1.4rem, 2vw + 1rem, 2rem);
+    margin-bottom: .75rem;
+}
+.text-secondary { color: var(--muted) !important; }
+
+/* ------------------------------------
+   Meta list
+------------------------------------ */
+.meta .label {
+    display: inline-block;
+    width: 6.5rem;
+    color: var(--muted);
+}
+
+/* ------------------------------------
+   Projects Grid (masonry-like)
+------------------------------------ */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 12px;
+}
+
+.project-card {
+    position: relative;
+    display: block;
+    grid-column: span 6; /* 2 per row on desktop by default */
+    overflow: hidden;
+    border-radius: 6px;
+    background: #111;
+}
+
+.project-card.wide { grid-column: span 12; }
+.project-card.tall { grid-row: span 2; }
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+    transition: transform .6s ease;
+}
+
+/* Hover overlay */
+.project-card .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 18px;
+    background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,0) 60%);
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.project-card h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.25rem;
+}
+.project-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.project-card:hover img { transform: scale(1.06); }
+.project-card:hover .overlay { opacity: 1; }
+
+/* ------------------------------------
+   Projects Rows (alternating image/text)
+------------------------------------ */
+.project-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.project-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    min-height: 0;
+}
+
+.project-row .project-media {
+    flex: 0 0 50%;
+}
+
+.project-row .project-info {
+    flex: 0 0 50%;
+    padding: 0 8px;
+}
+
+/* Even rows swap sides */
+.project-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Project section background (full-bleed white while keeping container width) */
+#projects {
+    position: relative;
+    color: #000; /* text on white */
+
+}
+#projects::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;  /* extend to viewport left */
+    margin-right: -50vw; /* extend to viewport right */
+    background: #fff;
+    z-index: -1;
+}
+/* Ensure links and buttons are visible on white */
+#projects a:not(.btn) { color: #000; }
+#projects .btn-outline-light {
+    color: #000;
+    border-color: #000;
+}
+#projects .btn-outline-light:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Add space between hero and the FIRST project row only */
+#projects { padding-top: 0 !important; } /* neutralize Bootstrap py-4 top if present */
+#projects .project-rows { padding-top: clamp(3rem, 6vw, 5rem); }
+
+/* Media styling for symmetry (no cropping, fit width) */
+.project-media img {
+    width: 100%;
+    height: auto;   /* preserve aspect, no cropping */
+    display: block;
+}
+
+/* Typography rhythm inside project info */
+.project-info h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.5rem;
+}
+.project-info p {
+    margin: 0;
+}
+.project-info p + p {
+    margin-top: .5rem;
+}
+
+/* ------------------------------------
+   Feature-left variant (bigger image on the left, text vertically centered)
+------------------------------------ */
+.project-row.feature-left .project-media {
+    grid-column: 1 / span 8;
+}
+.project-row.feature-left .project-info {
+    grid-column: 9 / span 4;
+    align-self: center; /* vertically center the text block next to the image */
+}
+.project-row.feature-left {
+    align-items: center; /* ensure the row aligns items centrally on the cross-axis */
+}
+
+/* ------------------------------------
+   Gallery Images
+------------------------------------ */
+/* Standard ratio images */
+.ratio img {
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Fixed size containers for consistent image sizing */
+.fixed-size-container {
+    height: 600px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: black;
+}
+
+.fixed-size-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+
+/* ------------------------------------
+   Project-Specific Hero Styles
+------------------------------------ */
+/* Interpretive Center - expandable hero */
+.interpretive-center .cover-section {
+    height: auto;
+    min-height: 60vh;
+}
+
+.interpretive-center .cover-bg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Farmer's Market - expandable hero with positioned elements */
+.farmers-market .cover-section {
+    height: auto;
+    min-height: 60vh;
+    position: relative;
+}
+
+.farmers-market .cover-bg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.farmers-market .site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.farmers-market .hero {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+/* ------------------------------------
+   Responsive tweaks
+------------------------------------ */
+@media (max-width: 991px) {
+
+
+    /* Hero text moves up for smaller screens */
+    .hero.container-xxl {
+        bottom: 1.5rem;
+        /* removed: left and padding so it stays aligned with container gutters */
+    }
+    .hero-text h1 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    /* Stack project rows on mobile */
+    .project-row {
+        flex-direction: column;
+    }
+    
+    .project-row .project-media,
+    .project-row .project-info {
+        flex: 0 0 100%;
+    }
+}
