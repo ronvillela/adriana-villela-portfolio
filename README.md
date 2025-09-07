@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing architectural design projects 
 
 ## 🌐 Live Site
 
-**View the portfolio:** https://ronvillela.github.io/adriana-architecture-portfolio
+**View the portfolio:** https://ronvillela.github.io/adriana-villela-portfolio/
 
 ## 📋 About
 
