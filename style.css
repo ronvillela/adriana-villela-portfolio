@@ -132,7 +132,12 @@ a:hover { opacity: .85; }
 
 /* Reduce spacing specifically for Tools in index.html */
 .meta li.tools-tight {
-    gap: 0.125rem;
+    gap: 0.125rem !important;
+}
+
+/* More specific rule to ensure it overrides */
+ul.meta li.tools-tight {
+    gap: 0.125rem !important;
 }
 
 .meta .label {
