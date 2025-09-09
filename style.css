@@ -114,6 +114,22 @@ a:hover { opacity: .85; }
     display: inline-block;
     width: 7rem;
     color: var(--muted);
+    vertical-align: top;
+}
+
+/* Ensure multi-line content aligns properly */
+.meta li {
+    display: flex;
+    align-items: flex-start;
+}
+
+.meta li .label {
+    flex-shrink: 0;
+    margin-right: 0.5rem;
+}
+
+.meta li > *:not(.label) {
+    flex: 1;
 }
 
 /* ------------------------------------
