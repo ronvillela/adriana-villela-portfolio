@@ -201,6 +201,11 @@ a:hover { opacity: .85; }
     flex-direction: row-reverse;
 }
 
+/* Right-aligned text for specific projects */
+.project-row.text-right .project-info {
+    text-align: right;
+}
+
 /* Project section background (full-bleed white while keeping container width) */
 #projects {
     position: relative;
