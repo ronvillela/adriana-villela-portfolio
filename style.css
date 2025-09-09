@@ -128,16 +128,12 @@ a:hover { opacity: .85; }
     vertical-align: top;
 }
 
-.meta li .program-content {
-    display: inline-block;
-    width: calc(100% - 7.5rem);
-    vertical-align: top;
-    text-indent: 0;
-    margin-left: 0;
-    padding-left: 0;
+.meta li.program-continuation {
+    padding-left: 7.5rem;
+    margin-top: 0;
 }
 
-.meta li > *:not(.label):not(.program-content) {
+.meta li > *:not(.label) {
     display: inline-block;
     width: calc(100% - 7.5rem);
     vertical-align: top;
