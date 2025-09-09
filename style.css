@@ -117,31 +117,33 @@ a:hover { opacity: .85; }
     vertical-align: top;
 }
 
-/* Hanging indent for proper Program alignment */
+/* Two-column layout for meta information */
+.meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1rem;
+    align-items: start;
+}
+
 .meta li {
-    display: block;
-    margin-bottom: 0.5rem;
-    padding-left: 7.5rem;
-    text-indent: -7.5rem;
+    display: contents;
 }
 
 .meta .label {
-    display: inline;
+    grid-column: 1;
     color: var(--muted);
     font-weight: 500;
-    margin-right: 0.5rem;
+    text-align: left;
 }
 
 .meta li > *:not(.label) {
-    display: inline;
+    grid-column: 2;
+    text-align: left;
 }
 
 /* Program text with proper line break alignment */
 .meta .program-text {
-    display: inline-block;
-    text-indent: 0;
-    margin-left: -7.5rem;
-    padding-left: 7.5rem;
+    display: block;
 }
 
 /* ------------------------------------
