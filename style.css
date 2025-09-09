@@ -140,6 +140,11 @@ ul.meta li.tools-tight {
     gap: 0.125rem !important;
 }
 
+/* Alternative approach - target the specific elements */
+.meta li.tools-tight .label {
+    margin-right: 0.125rem !important;
+}
+
 .meta .label {
     flex: 0 0 auto;
     color: var(--muted);
