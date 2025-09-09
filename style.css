@@ -117,28 +117,32 @@ a:hover { opacity: .85; }
     vertical-align: top;
 }
 
-/* Two-column layout for meta information */
+/* Two-column layout for meta information - cross-browser compatible */
 .meta {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.5rem 1rem;
-    align-items: start;
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.5rem;
 }
 
 .meta li {
-    display: contents;
+    display: table-row;
 }
 
 .meta .label {
-    grid-column: 1;
+    display: table-cell;
     color: var(--muted);
     font-weight: 500;
     text-align: left;
+    vertical-align: top;
+    padding-right: 1rem;
+    white-space: nowrap;
 }
 
 .meta li > *:not(.label) {
-    grid-column: 2;
+    display: table-cell;
     text-align: left;
+    vertical-align: top;
 }
 
 /* Program text with proper line break alignment */
