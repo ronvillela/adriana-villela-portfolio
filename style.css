@@ -117,24 +117,23 @@ a:hover { opacity: .85; }
     vertical-align: top;
 }
 
-/* Simple hanging indent for Program alignment */
+/* Hanging indent for proper Program alignment */
 .meta li {
     display: block;
     margin-bottom: 0.5rem;
+    padding-left: 7.5rem;
+    text-indent: -7.5rem;
 }
 
 .meta .label {
-    display: inline-block;
-    width: 7rem;
+    display: inline;
     color: var(--muted);
     font-weight: 500;
-    vertical-align: top;
+    margin-right: 0.5rem;
 }
 
 .meta li > *:not(.label) {
-    display: inline-block;
-    width: calc(100% - 7.5rem);
-    vertical-align: top;
+    display: inline;
 }
 
 /* ------------------------------------
