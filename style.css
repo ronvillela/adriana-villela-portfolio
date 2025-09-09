@@ -204,6 +204,7 @@ a:hover { opacity: .85; }
 /* Right-aligned text for specific projects */
 .project-row.text-right .project-info {
     text-align: right;
+    padding: 0 8px; /* Maintain same padding as other projects */
 }
 
 /* Project section background (full-bleed white while keeping container width) */
