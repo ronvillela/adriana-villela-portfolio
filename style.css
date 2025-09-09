@@ -117,26 +117,25 @@ a:hover { opacity: .85; }
     vertical-align: top;
 }
 
-/* Ensure multi-line content aligns properly */
-.meta li {
-    display: block;
+/* Table-based meta information for precise alignment */
+.meta-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.meta li .label {
-    display: inline-block;
+.meta-table td {
+    padding: 0.25rem 0;
+    vertical-align: top;
+}
+
+.meta-table td.label {
     width: 7rem;
-    vertical-align: top;
+    color: var(--muted);
+    font-weight: 500;
 }
 
-.meta li.program-continuation {
-    padding-left: 7.5rem;
-    margin-top: 0;
-}
-
-.meta li > *:not(.label) {
-    display: inline-block;
-    width: calc(100% - 7.5rem);
-    vertical-align: top;
+.meta-table td:not(.label) {
+    padding-left: 0.5rem;
 }
 
 /* ------------------------------------
