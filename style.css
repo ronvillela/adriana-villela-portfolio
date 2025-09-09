@@ -119,19 +119,19 @@ a:hover { opacity: .85; }
 
 /* Ensure multi-line content aligns properly */
 .meta li {
-    display: flex;
-    align-items: flex-start;
+    display: block;
+    padding-left: 7.5rem;
+    text-indent: -7.5rem;
 }
 
 .meta li .label {
-    flex: 0 0 7rem;
+    display: inline;
+    width: auto;
     margin-right: 0.5rem;
 }
 
 .meta li > *:not(.label) {
-    flex: 1;
-    margin-left: 0;
-    padding-left: 0;
+    display: inline;
 }
 
 /* ------------------------------------
