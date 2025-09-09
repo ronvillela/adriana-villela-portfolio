@@ -136,6 +136,14 @@ a:hover { opacity: .85; }
     display: inline;
 }
 
+/* Program text with proper line break alignment */
+.meta .program-text {
+    display: inline-block;
+    text-indent: 0;
+    margin-left: -7.5rem;
+    padding-left: 7.5rem;
+}
+
 /* ------------------------------------
    Projects Grid (masonry-like)
 ------------------------------------ */
